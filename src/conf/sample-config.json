@@ -1,0 +1,14 @@
+{
+  "user_token" : "XXXXXX",
+  "client_token" : "XXXXX",
+  "client_key": "XXXXX",
+  "boond_host" : "ui.boondmanager.com",
+  "template" : "conf/Template-KPI.pptx",
+  "outdir" : ".",
+  "basename": "POLE_OUEST_%s.pptx",
+
+  "smtp_host" : "smtp.localhost",
+  "sender" : "me@domain.no",
+  "sender_password" : "XXXXX",
+  "recipient" : "you@domain.no"
+}

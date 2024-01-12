@@ -1,0 +1,130 @@
+2024-01-11 10:47:27,688 - configuration - DEBUG - config is  {'user_token': '31332e67726f757065626961', 'client_token': '67726f757065626961', 'client_key': '62586c0685408e1f0f98', 'boond_host': 'ui.boondmanager.com', 'template': 'conf/Template-KPI.pptx', 'outdir': '.', 'basename': 'POLE_OUEST_%s.pptx', 'smtp_host': 'ex.mail.ovh.net', 'sender': 'patrick.rouillon@alteam.com', 'sender_password': 'log2alteam', 'recipient': '8589db0d.biagroupe.fr@fr.teams.ms'}
+2024-01-11 10:47:28,371 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Fiacre KINMAGBAHOHOUE
+2024-01-11 10:47:28,379 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,379 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-07-01 - 2023-12-31
+2024-01-11 10:47:28,380 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Mounia RHANEM
+2024-01-11 10:47:28,380 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,380 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-04-01 - 2023-12-31
+2024-01-11 10:47:28,380 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Geoffrey LADREM
+2024-01-11 10:47:28,381 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,381 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-01-31
+2024-01-11 10:47:28,381 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-08-01 - 2023-12-31
+2024-01-11 10:47:28,381 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Somphone SENGSAVANG
+2024-01-11 10:47:28,382 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,382 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-01-31
+2024-01-11 10:47:28,382 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-08-01 - 2023-12-31
+2024-01-11 10:47:28,382 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Sneha NAIR
+2024-01-11 10:47:28,382 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,382 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-02-29
+2024-01-11 10:47:28,382 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-01-01 - 2023-12-31
+2024-01-11 10:47:28,383 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Kais CHAABI
+2024-01-11 10:47:28,383 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,383 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-10-01 - 2024-03-31
+2024-01-11 10:47:28,383 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Hoi Yan LAM
+2024-01-11 10:47:28,383 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,383 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-04-04 - 2024-03-31
+2024-01-11 10:47:28,383 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Lila SIBER
+2024-01-11 10:47:28,384 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,384 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-03-31
+2024-01-11 10:47:28,384 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-07-01 - 2023-12-31
+2024-01-11 10:47:28,384 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Erick ELONG
+2024-01-11 10:47:28,384 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,384 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-04-01
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-07-01 - 2023-12-31
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is David GEBARA
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-05-01 - 2024-04-30
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Gokay Varlik
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-05-26 - 2024-05-30
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Adrien BAGHDAD ZOUGGA
+2024-01-11 10:47:28,385 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-06-30
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-08-01 - 2023-12-31
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Jugurtha RAMI
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-06-30
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-08-01 - 2023-12-31
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Jean-Baptiste Bertrand
+2024-01-11 10:47:28,386 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,387 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-06-30
+2024-01-11 10:47:28,387 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-01-01 - 2023-12-31
+2024-01-11 10:47:28,387 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Etienne FERMAUT
+2024-01-11 10:47:28,387 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,388 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-06-30
+2024-01-11 10:47:28,388 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-07-01 - 2023-12-31
+2024-01-11 10:47:28,388 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Céline DOUAUD
+2024-01-11 10:47:28,388 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,388 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-06-30
+2024-01-11 10:47:28,389 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-11-25 - 2023-12-31
+2024-01-11 10:47:28,389 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Matthias LEAUTE
+2024-01-11 10:47:28,389 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,389 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-09-26 - 2024-09-30
+2024-01-11 10:47:28,390 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Panagiotis AVERBACH
+2024-01-11 10:47:28,390 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,390 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-11-14 - 2024-11-14
+2024-01-11 10:47:28,390 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is YEMPABOU ABDEL AZIZ THIOMBIANO
+2024-01-11 10:47:28,391 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,391 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-12-01 - 2024-11-30
+2024-01-11 10:47:28,391 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Laurent Varisot
+2024-01-11 10:47:28,391 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,391 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-12-01 - 2024-11-30
+2024-01-11 10:47:28,392 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Kossa Franck BLE
+2024-01-11 10:47:28,392 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,392 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-12-31
+2024-01-11 10:47:28,392 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-10-01 - 2023-12-31
+2024-01-11 10:47:28,392 - mapper.contrat_maturite_mapper - DEBUG - map : consultant is Patrick Mendes
+2024-01-11 10:47:28,393 - mapper.contrat_maturite_mapper - DEBUG - map : consultant accepted
+2024-01-11 10:47:28,393 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2024-01-01 - 2024-12-31
+2024-01-11 10:47:28,393 - mapper.contrat_maturite_mapper - DEBUG - map : deliveries 2023-01-02 - 2023-12-31
+2024-01-11 10:47:28,954 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Fiacre KINMAGBAHOHOUE
+2024-01-11 10:47:29,205 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Mounia RHANEM
+2024-01-11 10:47:29,432 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Geoffrey LADREM
+2024-01-11 10:47:29,665 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Somphone SENGSAVANG
+2024-01-11 10:47:29,930 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Sneha NAIR
+2024-01-11 10:47:30,158 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Kais CHAABI
+2024-01-11 10:47:30,386 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Hoi Yan LAM
+2024-01-11 10:47:30,627 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Lila SIBER
+2024-01-11 10:47:30,821 - mapper.suivi_resource_mapper - INFO - map : no actions for Lila SIBER
+2024-01-11 10:47:30,821 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Erick ELONG
+2024-01-11 10:47:31,232 - mapper.suivi_resource_mapper - DEBUG - map : consultant is David GEBARA
+2024-01-11 10:47:31,542 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Gokay Varlik
+2024-01-11 10:47:31,812 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Adrien BAGHDAD ZOUGGA
+2024-01-11 10:47:32,065 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Jugurtha RAMI
+2024-01-11 10:47:32,317 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Jean-Baptiste Bertrand
+2024-01-11 10:47:32,516 - mapper.suivi_resource_mapper - INFO - map : no actions for Jean-Baptiste Bertrand
+2024-01-11 10:47:32,517 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Etienne FERMAUT
+2024-01-11 10:47:32,790 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Céline DOUAUD
+2024-01-11 10:47:32,999 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Matthias LEAUTE
+2024-01-11 10:47:33,211 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Panagiotis AVERBACH
+2024-01-11 10:47:33,474 - mapper.suivi_resource_mapper - DEBUG - map : consultant is YEMPABOU ABDEL AZIZ THIOMBIANO
+2024-01-11 10:47:33,699 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Laurent Varisot
+2024-01-11 10:47:33,930 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Kossa Franck BLE
+2024-01-11 10:47:34,158 - mapper.suivi_resource_mapper - DEBUG - map : consultant is Patrick Mendes
+2024-01-11 10:47:34,869 - mapper.suivi_client_mapper - DEBUG - map : consultant is Fiacre KINMAGBAHOHOUE
+2024-01-11 10:47:35,026 - mapper.suivi_client_mapper - DEBUG - map : consultant is Mounia RHANEM
+2024-01-11 10:47:35,172 - mapper.suivi_client_mapper - DEBUG - map : consultant is Geoffrey LADREM
+2024-01-11 10:47:35,315 - mapper.suivi_client_mapper - DEBUG - map : consultant is Somphone SENGSAVANG
+2024-01-11 10:47:35,460 - mapper.suivi_client_mapper - DEBUG - map : consultant is Sneha NAIR
+2024-01-11 10:47:35,621 - mapper.suivi_client_mapper - DEBUG - map : consultant is Kais CHAABI
+2024-01-11 10:47:35,766 - mapper.suivi_client_mapper - DEBUG - map : consultant is Hoi Yan LAM
+2024-01-11 10:47:35,944 - mapper.suivi_client_mapper - DEBUG - map : consultant is Lila SIBER
+2024-01-11 10:47:36,117 - mapper.suivi_client_mapper - DEBUG - map : consultant is Erick ELONG
+2024-01-11 10:47:36,254 - mapper.suivi_client_mapper - DEBUG - map : consultant is David GEBARA
+2024-01-11 10:47:36,396 - mapper.suivi_client_mapper - DEBUG - map : consultant is Gokay Varlik
+2024-01-11 10:47:36,538 - mapper.suivi_client_mapper - DEBUG - map : consultant is Adrien BAGHDAD ZOUGGA
+2024-01-11 10:47:36,685 - mapper.suivi_client_mapper - DEBUG - map : consultant is Jugurtha RAMI
+2024-01-11 10:47:36,849 - mapper.suivi_client_mapper - DEBUG - map : consultant is Jean-Baptiste Bertrand
+2024-01-11 10:47:37,028 - mapper.suivi_client_mapper - INFO - map : no actions for Sébastien Robert
+2024-01-11 10:47:37,029 - mapper.suivi_client_mapper - DEBUG - map : consultant is Etienne FERMAUT
+2024-01-11 10:47:37,163 - mapper.suivi_client_mapper - INFO - map : no actions for Florent Viallard
+2024-01-11 10:47:37,164 - mapper.suivi_client_mapper - DEBUG - map : consultant is Céline DOUAUD
+2024-01-11 10:47:37,333 - mapper.suivi_client_mapper - DEBUG - map : consultant is Matthias LEAUTE
+2024-01-11 10:47:37,477 - mapper.suivi_client_mapper - DEBUG - map : consultant is Panagiotis AVERBACH
+2024-01-11 10:47:37,610 - mapper.suivi_client_mapper - DEBUG - map : consultant is YEMPABOU ABDEL AZIZ THIOMBIANO
+2024-01-11 10:47:37,745 - mapper.suivi_client_mapper - INFO - map : no actions for Caroline Guyader
+2024-01-11 10:47:37,746 - mapper.suivi_client_mapper - DEBUG - map : consultant is Laurent Varisot
+2024-01-11 10:47:37,893 - mapper.suivi_client_mapper - DEBUG - map : consultant is Kossa Franck BLE
+2024-01-11 10:47:38,025 - mapper.suivi_client_mapper - DEBUG - map : consultant is Patrick Mendes
+2024-01-11 10:47:38,247 - __main__ - INFO - sending email
+2024-01-11 10:47:39,685 - mailler - DEBUG - sending mail {}
