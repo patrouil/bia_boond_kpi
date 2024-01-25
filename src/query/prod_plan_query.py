@@ -10,10 +10,10 @@ class ProductionPlanQuery:
 
     paramdict = {
         "narrowPerimeter": "false",
-        'resourceTypes': '[0,1]',  # consultant interne / externe
-        'resourceStates': '[1,5]',  # en mission / futur inter co
+        'resourceTypes': '[1,0]',  # consultant interne / externe
+        'resourceStates': '[1,2]',  # en mission / futur inter co
         'perimeterType': 'projects',
-        'perimeterPoles': '[4]',  # pole Patrick (@TODO rendre parametrable)
+        'perimeterPoles': '[1]',  # pole Patrick (@TODO rendre parametrable)
         'period': 'monthly',
         'order': 'asc',
         'sort': 'availability',

@@ -1,6 +1,7 @@
 import datetime
 import logging.config
 import sys
+import getopt
 
 from configuration import Configuration
 from engine.contrat_client_suivi_engine import ContratClientSuiviEngine
@@ -20,6 +21,10 @@ def maturityKpi(api:BoondApi, prs : Presentation):
     ContratResourceSuiviEngine(api).projectSuiviKPI(prs)
     ContratClientSuiviEngine(api).projectSuiviKPI(prs)
 
+    return
+
+def usage():
+    logger.error("Usage is boondkpi.py -c config")
     return
 
 def send_mail(fname:str):
@@ -51,6 +56,22 @@ def main() -> int:
 if __name__ == '__main__':
     logging.config.fileConfig('conf/logging.conf')
     logger = logging.getLogger(__name__)
-    config = Configuration()
+
+    argv = sys.argv[1:]
+
+    try:
+        opts, args = getopt.getopt(argv, "c:")
+        configFileName = None
+        for opt, arg in opts:
+            if opt in ['-c']:
+                configFileName = arg
+
+        config = Configuration(filename=configFileName)
+
+    except Exception as ex:
+        logger.error("__main__ : ex is %s", ex)
+        usage()
+        sys.exit(-1)
+
     sys.exit(main())  # next section explains the use of sys.exit
 # end
