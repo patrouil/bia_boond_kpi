@@ -1,3 +1,6 @@
+
+from  functools import cache
+
 from boond.boond_api import BoondApi
 from boond.entity.entity_actions import EntityActions
 
@@ -14,6 +17,7 @@ class LastClientActionQuery:
     def __init__(self, api: BoondApi):
         self.api = api
 
+    @cache
     def get_client_actions(self, client_id: str) -> EntityActions:
         plan = self.api.getContactActionsById(client_id, self.paramdict)
         return plan

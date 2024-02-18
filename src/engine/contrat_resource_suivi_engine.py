@@ -23,7 +23,7 @@ class ContratResourceSuiviEngine:
         slide = prs.slides.add_slide(slide_layout)
 
         slide.shapes.title.text = 'Suivi des Consultants'
-        x, y, cx, cy = Cm(1), Cm(2.3), Cm(31), Cm(len(suivi_list) * 0.5)
+        x, y, cx, cy = Cm(1), Cm(2.3), Cm(31.5), Cm(len(suivi_list) * 0.5)
 
         shape = slide.shapes.add_table(len(suivi_list) + 1, 4, x, y, cx, cy)
         table = shape.table
@@ -36,7 +36,7 @@ class ContratResourceSuiviEngine:
         table.columns[0].width = Cm(3.5)
         table.columns[1].width = Cm(6)
         table.columns[2].width = Cm(6)
-        table.columns[3].width = Cm(15)
+        table.columns[3].width = Cm(15.5)
 
         row = 1
         s = MaturiteContrat()

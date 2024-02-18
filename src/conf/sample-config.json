@@ -10,5 +10,8 @@
   "smtp_host" : "smtp.localhost",
   "sender" : "me@domain.no",
   "sender_password" : "XXXXX",
-  "recipient" : "you@domain.no"
+  "recipient" : "you@domain.no",
+
+  "pole-id" : "pole name",
+  "flag" : "flag name"
 }

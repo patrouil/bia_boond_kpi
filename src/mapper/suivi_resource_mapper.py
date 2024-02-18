@@ -31,9 +31,9 @@ class SuiviResourceMapper:
             s = ContratSuivi()
             deliver_id = resource['relationships']['deliveries']['data'][0]['id']
             if ( deliver_id is not None) :
-                deliv = prod.included_of('delivery', deliver_id)
+                deliv = prod.included_of_by_type_and_id('delivery', deliver_id)
                 proj_id = deliv['relationships']['project']['data']['id']
-                proj = prod.included_of('project', proj_id)
+                proj = prod.included_of_by_type_and_id('project', proj_id)
                 s.contenu = proj['attributes']['reference']
             # there can be many deliveries per resource
             # les merger pour la presentation
@@ -46,7 +46,7 @@ class SuiviResourceMapper:
             d = actions.data_dict['data'][0]
             s.date = d['attributes']['startDate']
             pid = d['relationships']['mainManager']['data']['id']
-            inc = actions.included_of('resource', pid)
+            inc = actions.included_of_by_type_and_id('resource', pid)
             s.qui = inc['attributes']['firstName'] + ' ' + inc['attributes']['lastName']
 
             s.typeOf = self.appl_dict.setting_action_of('resource', d['attributes']['typeOf'])

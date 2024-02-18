@@ -35,7 +35,7 @@ class ContratClientSuiviEngine:
         table.columns[0].width = Cm(3.5)
         table.columns[1].width = Cm(6)
         table.columns[2].width = Cm(6)
-        table.columns[3].width = Cm(15)
+        table.columns[3].width = Cm(15.5)
 
         row = 1
         s = MaturiteContrat()

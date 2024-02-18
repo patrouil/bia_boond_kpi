@@ -43,19 +43,19 @@ class MaturiteContratMapper:
             m.consultant = r['attributes']['firstName'] + ' ' + r['attributes']['lastName']
 
             for d in prod.resource_deliveries(r) :
-                deliv = prod.included_of('delivery', d['id'])
+                deliv = prod.included_of_by_type_and_id('delivery', d['id'])
                 m.debut = self.minStr(m.debut,deliv['attributes']['startDate'])
                 m.fin = self.maxStr(m.fin, deliv['attributes']['endDate'])
                 self.logger.debug("map : deliveries %s - %s", deliv['attributes']['startDate'], deliv['attributes']['endDate'])
 
                 proj_id = deliv['relationships']['project']['data']['id']
-                proj = prod.included_of('project', proj_id)
+                proj = prod.included_of_by_type_and_id('project', proj_id)
                 if ( m.reference == ''): m.reference = proj['attributes']['reference']
                 contact_id = proj['relationships']['contact']['data']['id']
                 company_id = proj['relationships']['company']['data']['id']
 
-                contact = prod.included_of('contact', contact_id)
-                company = prod.included_of('company', company_id)
+                contact = prod.included_of_by_type_and_id('contact', contact_id)
+                company = prod.included_of_by_type_and_id('company', company_id)
                 if ( m.donneurOrdre == '') : m.donneurOrdre = contact['attributes']['firstName'] + ' ' + contact['attributes']['lastName']
                 if ( m.client == '') : m.client = company['attributes']['name']
             # end for

@@ -32,13 +32,13 @@ class SuiviClientMapper:
             if ( deliver_id is  None) :
                 continue
 
-            delivery = prod.included_of('delivery', deliver_id)
+            delivery = prod.included_of_by_type_and_id('delivery', deliver_id)
             #proj_id = delivery['relationships']['project']['data']['id']
-            proj = prod.included_of('project', delivery['relationships']['project']['data']['id'])
+            proj = prod.included_of_by_type_and_id('project', delivery['relationships']['project']['data']['id'])
             contact_id = proj['relationships']['contact']['data']['id']
-            contact = prod.included_of('contact', proj['relationships']['contact']['data']['id'])
+            contact = prod.included_of_by_type_and_id('contact', proj['relationships']['contact']['data']['id'])
             #company_id = proj['relationships']['company']['data']['id']
-            company = prod.included_of('company', proj['relationships']['company']['data']['id'])
+            company = prod.included_of_by_type_and_id('company', proj['relationships']['company']['data']['id'])
 
             s.person = contact['attributes']['firstName'] + ' ' + contact['attributes']['lastName']
             s.contenu = proj['attributes']['reference'] + '\n' + company['attributes']['name']
@@ -53,7 +53,7 @@ class SuiviClientMapper:
             first_action = actions.data_dict['data'][0]
             s.date = first_action['attributes']['startDate']
             pid = first_action['relationships']['mainManager']['data']['id']
-            manager = actions.included_of('resource', pid)
+            manager = actions.included_of_by_type_and_id('resource', pid)
             s.qui = manager['attributes']['firstName'] + ' ' + manager['attributes']['lastName']
 
             s.typeOf = self.appl_dict.setting_action_of('contact', first_action['attributes']['typeOf'])

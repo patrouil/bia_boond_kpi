@@ -17,11 +17,11 @@ class ContratMaturityEngine:
         self.logger = logging.Logger(__name__)
         self.api = api
 
-    def write_matutity_slide(self, kpi_list:[MaturiteContrat], prs:Presentation)->None:
+    def _write_matutity_slide(self, kpi_list:[MaturiteContrat], prs:Presentation)->None:
         slide_layout = prs.slide_layouts[1]
         slide = prs.slides.add_slide(slide_layout)
 
-        slide.shapes.title.text = "Maturité Contrats"
+        slide.shapes.title.text = "Maturité des Contrats"
         x, y, cx, cy = Cm(1), Cm(2.3), Cm(31), Cm(len(kpi_list) * 0.5)
 
         shape  = slide.shapes.add_table(len(kpi_list)+1, 4, x, y, cx, cy)
@@ -39,27 +39,27 @@ class ContratMaturityEngine:
 
         row = 1
         for kpi in kpi_list:
-            self.put_text(table.cell(row,0).text_frame, kpi.debut)
-            self.put_text(table.cell(row,1).text_frame, kpi.fin)
-            self.put_text(table.cell(row,2).text_frame, kpi.consultant + '\n' + kpi.reference)
-            self.put_text(table.cell(row,3).text_frame, kpi.donneurOrdre + '\n' + kpi.client)
+            self._put_text(table.cell(row, 0).text_frame, kpi.debut)
+            self._put_text(table.cell(row, 1).text_frame, kpi.fin)
+            self._put_text(table.cell(row, 2).text_frame, kpi.consultant + '\n' + kpi.reference)
+            self._put_text(table.cell(row, 3).text_frame, kpi.donneurOrdre + '\n' + kpi.client)
             row = row+1
         #end for
         return
-    def projectMaturiteKPI(self, prs:Presentation)-> None:
-        p = ProductionPlanQuery(self.api, None).getProdPlan()
+    def projectMaturiteKPI(self, prs:Presentation, poleId:str = None) -> None:
+        p = ProductionPlanQuery(self.api, poleId).getProdPlan()
         m = MaturiteContratMapper(self.api)
         kpi_list = m.map(p)
         #kpi_list = sorted(kpi_list, key= lambda c: c.fin)
         row = 0
         while row < len(kpi_list) :
             j = min(len(kpi_list) , row+self.PROJECTS_PER_SLIDE)
-            self.write_matutity_slide(kpi_list[row : j], prs)
+            self._write_matutity_slide(kpi_list[row: j], prs)
             row = row+self.PROJECTS_PER_SLIDE
         #
         return None
 
-    def put_text(self, tf : TextFrame, t:str)-> None:
+    def _put_text(self, tf : TextFrame, t:str)-> None:
             p = tf.paragraphs[0]
             p.clear()
             r = p.add_run()

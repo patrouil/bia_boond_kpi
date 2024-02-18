@@ -13,19 +13,22 @@ class ProductionPlanQuery:
         'resourceTypes': '[1,0]',  # consultant interne / externe
         'resourceStates': '[1,2]',  # en mission / futur inter co
         'perimeterType': 'projects',
-        'perimeterPoles': '[1]',  # pole Patrick (@TODO rendre parametrable)
+        'perimeterPoles': '[1]',  # pole Patrick
         'period': 'monthly',
         'order': 'asc',
         'sort': 'availability',
         'endDate': '2024-12-31',
         'startDate': '2024-01-01',
         'reportingAvailability': 'asc',
+
         'maxResults': '300'
     }
 
-    def __init__(self, api: BoondApi, poles: str):
+    def __init__(self, api: BoondApi, pole_id: str):
         self.api = api
-        if poles is not None : self.paramdict['perimeterPoles'] = poles
+
+        if pole_id is not None : self.paramdict['perimeterPoles'] = '['+pole_id+']'
+        # otherwire  there is no perimeterPoles parameter
         return
 
     def getProdPlan(self) -> ReportingProductionPlans:

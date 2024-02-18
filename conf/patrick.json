@@ -1,0 +1,17 @@
+{
+  "user_token" : "31332e67726f757065626961",
+  "client_token" : "67726f757065626961",
+  "client_key": "62586c0685408e1f0f98",
+  "boond_host" : "ui.boondmanager.com",
+  "template" : "conf/Template-KPI.pptx",
+  "outdir" : ".",
+  "basename": "POLE_OUEST_%s.pptx",
+
+  "Xsmtp_host" : "ex.mail.ovh.net",
+  "Xsender" : "patrick.rouillon@alteam.com",
+  "Xsender_password" : "log2alteam",
+  "recipient" : "8589db0d.biagroupe.fr@fr.teams.ms",
+
+  "pole-id" : "4",
+  "flag" : "flag name"
+}

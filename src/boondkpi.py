@@ -15,8 +15,8 @@ from pptx import Presentation
 from mailler import Mailler
 
 
-def maturityKpi(api:BoondApi, prs : Presentation):
-    ContratMaturityEngine(api).projectMaturiteKPI(prs)
+def build_pages(api:BoondApi, prs : Presentation):
+    ContratMaturityEngine(api).projectMaturiteKPI(prs, config.pole_id)
 
     ContratResourceSuiviEngine(api).projectSuiviKPI(prs)
     ContratClientSuiviEngine(api).projectSuiviKPI(prs)
@@ -25,6 +25,7 @@ def maturityKpi(api:BoondApi, prs : Presentation):
 
 def usage():
     logger.error("Usage is boondkpi.py -c config")
+    logger.error("using default")
     return
 
 def send_mail(fname:str):
@@ -38,13 +39,13 @@ def send_mail(fname:str):
     m.send()
     return
 
-def main() -> int:
+def do_report() -> int:
     auth = BoondAuth()
     auth.clientTokenAuth(config.client_token, config.user_token, config.client_key)
     api = BoondApi(auth, config.boond_host)
-    # open template presantion
+    # open template presentation
     prs = Presentation(config.template)
-    maturityKpi(api, prs)
+    build_pages(api, prs)
     fname = config.outdir + '/'+ (config.basename % datetime.date.today().isoformat())
     prs.save(fname)
 
@@ -65,13 +66,12 @@ if __name__ == '__main__':
         for opt, arg in opts:
             if opt in ['-c']:
                 configFileName = arg
-
-        config = Configuration(filename=configFileName)
-
     except Exception as ex:
         logger.error("__main__ : ex is %s", ex)
         usage()
-        sys.exit(-1)
+        configFileName = None
 
-    sys.exit(main())  # next section explains the use of sys.exit
+    config = Configuration(filename=configFileName)
+
+    sys.exit(do_report())  # next section explains the use of sys.exit
 # end

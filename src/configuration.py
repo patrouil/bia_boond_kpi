@@ -68,4 +68,12 @@ class Configuration:
     def recipient(self) -> str:
         return self.config.get('recipient')
 
+    @property
+    def pole_id(self) -> str:
+        return self.config.get('pole-id')
+
+    @property
+    def flag(self) -> str:
+        return self.config.get('flag')
+
 # end class

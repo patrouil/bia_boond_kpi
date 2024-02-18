@@ -10,18 +10,21 @@ from boond.entity.entity_actions import EntityActions
 from boond.boond_auth import BoondAuth
 from boond.entity.reporting_production_plans import ReportingProductionPlans
 from boond.entity.application_dictionnany import ApplicationDictionary
+from boond.entity.entity_poles import EntityPoles
 
 
 # narrowPerimeter=false&occupationGradient=false&perimeterPoles=%5B%224%22%5D&perimeterType=projects&period=periodDynamic&periodDynamic=thisMonth&positioningPeriod=created&regroup=false&saveSearch=true&showContracts=false
+# Boond APi documentation https://doc.boondmanager.com/api-externe/
 
 
 class BoondApi:
     URL_CURRENT_USER = '/api/application/current-user'
     URL_PRODUCTION_PLAN = '/api/reporting-production-plans'
     URL_RESOURCES_ATTACHED_FLAG = "/api/resources/%s/attached-flags"
-    URL_RESOURCES_ACTIONS = "/api/resources/%s/actions"
-    URL_CONTACTS_ACTIONS = "/api/contacts/%s/actions"
-    URL_APPLICATION_DICTIONARY = '/api/application/dictionary'
+    URL_RESOURCES_ACTIONS       = "/api/resources/%s/actions"
+    URL_CONTACTS_ACTIONS        = "/api/contacts/%s/actions"
+    URL_APPLICATION_DICTIONARY  = '/api/application/dictionary'
+    URL_POLES                   = '/api/poles'
 
     def __init__(self, auth: BoondAuth, host: str) -> None:
         self.logger = logging.getLogger(__name__)
@@ -68,6 +71,13 @@ class BoondApi:
         # self.logger.debug("getApplicationDictionary: %s", val)
 
         return ApplicationDictionary(val)
+
+    def getPoles(self) -> EntityPoles:
+        val = self.get(self.URL_POLES)
+        assert (val is not None)
+        self.logger.debug("getPoles: %s", val)
+
+        return EntityPoles(val)
 
     def getResourceFlagsById(self, id: str) -> AttachedFlags:
         s = self.URL_RESOURCES_ATTACHED_FLAG % id
