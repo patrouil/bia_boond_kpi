@@ -2,7 +2,7 @@ import logging
 
 from boond.boond_api import BoondApi
 from boond.entity.reporting_production_plans import ReportingProductionPlans
-from kpi.maturite_contrat import MaturiteContrat
+from entities.maturite_contrat import MaturiteContrat
 
 
 class MaturiteContratMapper:
