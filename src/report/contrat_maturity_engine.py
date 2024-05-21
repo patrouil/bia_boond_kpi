@@ -2,20 +2,23 @@ import datetime
 import logging
 
 from boond.boond_api import BoondApi
-from kpi.maturite_contrat import MaturiteContrat
+from entities.maturite_contrat import MaturiteContrat
 from pptx import Presentation
 from pptx.util import Pt, Cm
 from pptx.text.text import TextFrame
 
+from entities.report_definition import ReportDefinition
 from mapper.contrat_maturite_mapper import MaturiteContratMapper
 from query.prod_plan_query import ProductionPlanQuery
+from report.generic_report import GenericReport
 
-class ContratMaturityEngine:
+class ContratMaturityEngine(GenericReport):
 
     PROJECTS_PER_SLIDE = 10
-    def __init__(self, api:BoondApi):
+    def __init__(self, api:BoondApi, definition: ReportDefinition):
+        super().__init__(api, definition)
         self.logger = logging.Logger(__name__)
-        self.api = api
+        self.poleId = definition.pole_id
 
     def _write_matutity_slide(self, kpi_list:[MaturiteContrat], prs:Presentation)->None:
         slide_layout = prs.slide_layouts[1]
@@ -39,18 +42,18 @@ class ContratMaturityEngine:
 
         row = 1
         for kpi in kpi_list:
-            self._put_text(table.cell(row, 0).text_frame, kpi.debut)
-            self._put_text(table.cell(row, 1).text_frame, kpi.fin)
-            self._put_text(table.cell(row, 2).text_frame, kpi.consultant + '\n' + kpi.reference)
-            self._put_text(table.cell(row, 3).text_frame, kpi.donneurOrdre + '\n' + kpi.client)
+            self.put_text(table.cell(row, 0).text_frame, kpi.debut)
+            self.put_text(table.cell(row, 1).text_frame, kpi.fin)
+            self.put_text(table.cell(row, 2).text_frame, kpi.consultant + '\n' + kpi.reference)
+            self.put_text(table.cell(row, 3).text_frame, kpi.donneurOrdre + '\n' + kpi.client)
             row = row+1
         #end for
         return
-    def projectMaturiteKPI(self, prs:Presentation, poleId:str = None) -> None:
-        p = ProductionPlanQuery(self.api, poleId).getProdPlan()
+    def report_pptx(self, prs:Presentation) -> None:
+        p = ProductionPlanQuery(self.api, self.poleId).getProdPlan()
         m = MaturiteContratMapper(self.api)
         kpi_list = m.map(p)
-        #kpi_list = sorted(kpi_list, key= lambda c: c.fin)
+        kpi_list = sorted(kpi_list, key= lambda c: c.fin)
         row = 0
         while row < len(kpi_list) :
             j = min(len(kpi_list) , row+self.PROJECTS_PER_SLIDE)
@@ -58,13 +61,4 @@ class ContratMaturityEngine:
             row = row+self.PROJECTS_PER_SLIDE
         #
         return None
-
-    def _put_text(self, tf : TextFrame, t:str)-> None:
-            p = tf.paragraphs[0]
-            p.clear()
-            r = p.add_run()
-            r.font.size = Pt(12)
-            r.text = t
-            return None
-    #end
 

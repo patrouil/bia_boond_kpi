@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 locate_python() {
   for c in python3.9 python3.8 python3; do
@@ -19,7 +19,7 @@ start() {
     exit -1
   fi
   cd $BOONDKPI_REPO
-  $PYTHON_CMD boondkpi.py
+  $PYTHON_CMD boondkpi.py  $*
 }
 
 setup() {
@@ -40,7 +40,8 @@ setup)
   ;;
 start)
   locate_python
-  start
+  shift
+  start $*
   ;;
 *)
   echo "Usage: $0 {start|setup}"

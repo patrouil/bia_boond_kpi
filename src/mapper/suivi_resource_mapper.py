@@ -2,7 +2,7 @@ import logging
 
 from boond.boond_api import BoondApi
 from boond.entity.reporting_production_plans import ReportingProductionPlans
-from kpi.contrat_suivi import ContratSuivi
+from entities.contrat_suivi import ContratSuivi
 from query.last_resources_actions_query import LastResourceActionQuery
 
 
@@ -39,7 +39,7 @@ class SuiviResourceMapper:
             # les merger pour la presentation
             s.person = resource['attributes']['firstName'] + ' ' + resource['attributes']['lastName']
             actions =  LastResourceActionQuery(self.api).get_rh_actions(resource['id'])
-            if  actions.is_empty() :
+            if  actions.is_empty :
                 self.logger.info("map : no actions for %s", s.person)
                 suivi.append(s)
                 continue

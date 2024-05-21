@@ -1,6 +1,9 @@
 import json
 import logging
 
+import entities
+from entities.report_definition import ReportDefinition
+
 """
 
 """
@@ -21,7 +24,9 @@ class Configuration:
     # end constructor
 
     def check_validity(self) -> None:
-        assert (self.config.get('boond_host') is not None)
+        assert (self.boond_host is not None)
+        fmt = self.format
+        assert ( fmt =='PPTX' or fmt == 'XLSX')
         return
 
     @property
@@ -53,6 +58,10 @@ class Configuration:
         return self.config.get("template")
 
     @property
+    def format(self)-> str:
+        return self.config.get('format', 'PPTX')
+
+    @property
     def smtp(self) -> str:
         return self.config.get('smtp_host')
 
@@ -73,7 +82,18 @@ class Configuration:
         return self.config.get('pole-id')
 
     @property
-    def flag(self) -> str:
-        return self.config.get('flag')
+    def flag_id(self) -> str:
+        return self.config.get('flag-id')
 
+    @property
+    def get_reports(self) -> [ReportDefinition]:
+
+        report_list = self.config.get('reports', None)
+        if report_list is None : return None
+        reports = []
+        for d in report_list :
+            report_entry = ReportDefinition(d.get('name', None), d)
+            reports.append(report_entry)
+        #end for
+        return reports
 # end class

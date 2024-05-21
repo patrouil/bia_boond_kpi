@@ -2,7 +2,7 @@ import logging
 
 from boond.boond_api import BoondApi
 from boond.entity.reporting_production_plans import ReportingProductionPlans
-from kpi.contrat_suivi import ContratSuivi
+from entities.contrat_suivi import ContratSuivi
 from query.last_client_actions_query import LastClientActionQuery
 
 class SuiviClientMapper:
@@ -45,12 +45,12 @@ class SuiviClientMapper:
 
             # les merger pour la presentation
             actions =  LastClientActionQuery(self.api).get_client_actions(contact_id)
-            if  actions.is_empty() :
+            if  actions.is_empty :
                 suivi.append(s)
                 self.logger.info("map : no actions for %s", s.person)
                 continue
 
-            first_action = actions.data_dict['data'][0]
+            first_action = actions.data[0]
             s.date = first_action['attributes']['startDate']
             pid = first_action['relationships']['mainManager']['data']['id']
             manager = actions.included_of_by_type_and_id('resource', pid)

@@ -20,8 +20,8 @@ class BoondAuth:
             "time": t,
             "mode": "normal"
         }
-        t= jwt.encode(pl, client_key, algorithm="HS256")
-        self.jwt_token['X-Jwt-Client-Boondmanager']= t
+        t = jwt.encode(pl, client_key, algorithm="HS256")
+        self.jwt_token['X-Jwt-Client-Boondmanager'] = t
         return
 
     def connection(self, host: str) -> HTTPConnection:
@@ -31,3 +31,5 @@ class BoondAuth:
     @property
     def auth_headers(self)->dict:
         return self.jwt_token
+
+# end class
