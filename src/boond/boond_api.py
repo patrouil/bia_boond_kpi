@@ -5,6 +5,7 @@ import urllib.parse
 from http.client import HTTPConnection
 from typing import Any
 
+from boond.entity.action_entity import ActionEntity
 from boond.entity.application_flags import ApplicationFlags
 from boond.entity.attached_flags import AttachedFlags
 from boond.entity.candidate_entity import CandidateEntity
@@ -77,6 +78,17 @@ class BoondApi:
 
         return ReportingProductionPlans(val)
 
+
+    def getResourcesOfProductionPlan(self, args) -> [ResourceEntity]:
+        s = self.build_url(self.URL_PRODUCTION_PLAN, args)
+        val = self.get(s)
+        assert (val is not None)
+        # self.logger.debug("getReportingProductionPlan: %s", val)
+        return list(map(lambda ent: ResourceEntity({'meta': val['meta'], 'data':ent, 'included': val['included']} ),
+                   val['data']))
+        # return ReportingProductionPlans(val)
+
+
     def getApplicationDictionary(self) -> ApplicationDictionary:
         val = self.get(self.URL_APPLICATION_DICTIONARY)
         assert (val is not None)
@@ -112,6 +124,14 @@ class BoondApi:
 
         return EntityActions(val)
 
+    def getResourceActionListById(self, id_entity: str, args) -> [ActionEntity]:
+        s = self.build_url(self.URL_RESOURCES_ACTIONS % id_entity, args)
+        val = self.get(s)
+        assert (val is not None)
+
+        return list(map(lambda ent: ActionEntity({'meta': val['meta'], 'data':ent, 'included': val['included']} ),
+                   val['data']))
+
     def getContactActionsById(self, id_entity: str, args) -> EntityActions:
         s = self.build_url(self.URL_CONTACTS_ACTIONS % id_entity, args)
         val = self.get(s)
@@ -130,8 +150,8 @@ class BoondApi:
         s = self.build_url(self.URL_RESOURCES, args)
         val = self.get(s)
         assert (val is not None)
-        return map(lambda ent: ResourceEntity({'meta': val['meta'], 'data':ent, 'included': val['included']} ),
-                    val['data'])
+        return list(map(lambda ent: ResourceEntity({'meta': val['meta'], 'data':ent, 'included': val['included']} ),
+                    val['data']))
 
     def getResourceInfo(self, id_entity:str) -> ResourceEntity:
         s = self.build_url(self.URL_RESOURCES_INFO % id_entity)
@@ -149,8 +169,8 @@ class BoondApi:
         s = self.build_url(self.URL_CANDIDATES, args)
         val = self.get(s)
         assert (val is not None)
-        return map( lambda ent: CandidateEntity(  {'meta': val['meta'], 'data':ent, 'included': val['included'] } ),
-                    val['data'])
+        return list(map( lambda ent: CandidateEntity(  {'meta': val['meta'], 'data':ent, 'included': val['included'] } ),
+                    val['data']))
 
     def getCandidateInfo(self, id_entity:str) -> CandidateEntity:
         s = self.build_url(self.URL_CANDIDATES_INFO % id_entity)

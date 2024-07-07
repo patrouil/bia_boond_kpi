@@ -1,4 +1,5 @@
 import logging
+from datetime import date
 
 from boond.boond_api import BoondApi
 from boond.entity.candidate_entity import CandidateEntity
@@ -24,7 +25,8 @@ class ListePrioritaireMapper:
         res_det.url = "https://ui.boondmanager.com/resources/%s/overview" % res.entity_id
         res_det.resource_name = res.full_name
         res_det.competences = res.skills
-        res_det.dispo_date = res.availability
+        theDate= date.fromisoformat(res.availability)  if date.fromisoformat is not None else date.fromisoformat('9999-12-31')
+        res_det.dispo_date = theDate.strftime('%d/%m/%Y') if date.fromisoformat is not None else ''
         res_det.experience = self.appl_dict.setting_experience_of(res.experience) if not res.experience == '-1' else ''
         res_det.state = self.appl_dict.setting_state_of('resource', res.state) if res.state is not None else ''
         res_det.typeOf = self.appl_dict.setting_type_of('resource', int(res.typeOf)) if not res.typeOf == '-1' else ''

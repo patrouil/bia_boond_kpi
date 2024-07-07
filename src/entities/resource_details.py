@@ -14,18 +14,20 @@ contraintes
 
 
 '''
+import datetime
+
 
 class ResourceDetails :
     def __init__(self):
         self.id = None
-        self.url = None
-        self.resource_name = None
-        self.comment = None
+        self.url:str = None
+        self.resource_name :str= None
+        self.comment :str= None
         self.state = None
-        self.typeOf = None
-        self.experience = None
-        self.competences = None
-        self.dispo_date = None
-        self.titre = None
+        self.typeOf : str= None
+        self.experience :str= None
+        self.competences :str= None
+        self.dispo_date: str = None
+        self.titre: str = None
         self.secteur = None
         return

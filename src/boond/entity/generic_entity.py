@@ -46,6 +46,14 @@ class GenericEntity:
             self.included)
         return next(f, None)
 
+
+    def all_included_of_by_type_and_id(self, selType: str, uid: str):
+        f = filter(
+            lambda inc: inc['type'] == selType and inc['id'] == uid,
+            self.included)
+        return list(f)
+
+
     def merge(self, to_import) :
         # self.data_dict['data'] = self.data_dict['data']| to_import.data_dict['data']
         self.data_dict['data']['attributes'] = self.data_attributes | to_import.data_attributes
