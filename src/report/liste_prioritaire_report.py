@@ -1,8 +1,6 @@
 import logging
 
 from boond.boond_api import BoondApi
-from pptx import Presentation
-from pptx.util import Cm
 
 from entities.report_definition import ReportDefinition
 from entities.resource_details import ResourceDetails
@@ -37,11 +35,14 @@ class ListePrioritaireReport(GenericReport):
                     'COMPETENCES',
                     'ANNEES Epx.',
                     'Dispo',
-                    'Commentaire'
+                    'Commentaire',
+                    'Dernière action'
                     ]
-    columns_width = [20, 18, 40, 15, 60, 10, 20, 30]
-    columns_header_format = ['HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign']
-    columns_data_format = ['TextDataLeftAlign', 'TextDataWrap', 'TextDataCenterAlign', 'TextDataLestAlign', 'TextDataWrap', 'TextDataCenterAlign', 'TextDataCenterAlign', 'TextDataWrap']
+    columns_width = [20, 18, 40, 15, 60, 10, 20, 30, 10]
+    columns_header_format = ['HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign', 'HeaderCenterAlign',
+                             'HeaderCenterAlign', 'HeaderCenterAlign']
+    columns_data_format = ['TextDataLeftAlign', 'TextDataWrap', 'TextDataCenterAlign', 'TextDataLestAlign', 'TextDataWrap', 'TextDataCenterAlign', 'TextDataCenterAlign',
+                           'TextDataWrap', 'TextDataCenterAlign']
 
     def __init__(self, api: BoondApi, definition: ReportDefinition):
         super().__init__(api, definition)
@@ -69,10 +70,11 @@ class ListePrioritaireReport(GenericReport):
             if ( res.experience is not None) : ws.write_string(row, 5, res.experience)
             if ( res.dispo_date is not None) : ws.write_string(row, 6, res.dispo_date, helper.format_of(self.columns_data_format[6]))
             if ( res.comment is not None) : ws.write_string(row, 7, res.comment)
+            if (res.last_action is not None ): ws.write_string(row, 8, res.last_action_date)
             row = row + 1
         return
 
-    def chek_mandatory_parameters(self) -> bool:
+    def chek_mandatory_parameters(self) -> None:
         assert (self.report_args.flag_name is not None)
         return
 

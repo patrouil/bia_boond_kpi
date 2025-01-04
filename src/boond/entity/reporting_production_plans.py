@@ -1,4 +1,5 @@
 from boond.entity.generic_entity import GenericEntity
+from boond.entity.resource_entity import ResourceEntity
 
 
 class ReportingProductionPlans(GenericEntity):
@@ -19,5 +20,9 @@ class ReportingProductionPlans(GenericEntity):
         d = r['deliveries']
         assert (d is not None)
         return d['data']
+
+    def data_resources(self)-> [ResourceEntity]:
+        return map( lambda ent: ResourceEntity(  {'meta': self.data_dict['meta'], 'data':ent, 'included': self.data_dict['included'] } ),
+                    self.data)
 
     # end

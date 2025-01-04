@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/Library/CloudStorage/Dropbox/Workspace/boondkpi/src/boondkpi.iml" filepath="$USER_HOME$/Library/CloudStorage/Dropbox/Workspace/boondkpi/src/boondkpi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boondkpi.iml" filepath="$PROJECT_DIR$/boondkpi.iml" />
     </modules>
   </component>
 </project>

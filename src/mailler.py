@@ -52,7 +52,7 @@ class Mailler:
             server.login(self.sender_email, self.sender_password)
             text = msg.as_string()
             r = server.sendmail(self.sender_email, self.recipient_address, text)
-            self.logger.debug("sending mail %s", r)
+            self.logger.debug("sending mail %s", str(r))
         except Exception as e:
             self.logger.error(f"Une erreur s'est produite : {str(e)}")
         finally:

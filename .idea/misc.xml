@@ -6,6 +6,12 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <type id="django" />
+  </component>
+  <component name="PWA">
+    <option name="wasEnabledAtLeastOnce" value="true" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="Python 3.9 (boondkpi)" project-jdk-type="Python SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

@@ -7,4 +7,5 @@ class ContratSuivi :
         self.qui = None
         self.contenu = None
         self.typeOf = None
+        self.actionText = None
         return

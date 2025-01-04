@@ -97,7 +97,7 @@ class ApplicationDictionary(GenericEntity):
 
     def setting_action_of(self, entity_name: str, action_id: str) -> str:
         f = filter(
-            lambda inc: inc['id'] == action_id,
+            lambda inc: inc['id'] == int(action_id),
             self.setting['action'][entity_name])
         l = next(f, None)
         if (l is None): return None
