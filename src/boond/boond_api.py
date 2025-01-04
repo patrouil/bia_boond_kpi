@@ -4,6 +4,7 @@ import logging
 import urllib.parse
 from http.client import HTTPConnection
 from typing import Any
+from  functools import cache
 
 from boond.entity.action_entity import ActionEntity
 from boond.entity.application_flags import ApplicationFlags
@@ -26,7 +27,6 @@ class BoondApi:
     URL_CURRENT_USER = '/api/application/current-user'
     URL_PRODUCTION_PLAN = '/api/reporting-production-plans'
     URL_RESOURCES_ATTACHED_FLAG = "/api/resources/%s/attached-flags"
-    URL_RESOURCES_ACTIONS       = "/api/resources/%s/actions"
     URL_CONTACTS_ACTIONS        = "/api/contacts/%s/actions"
     URL_APPLICATION_DICTIONARY  = '/api/application/dictionary'
     URL_APPLICATION_FLAGS       = '/api/application/flags'
@@ -35,9 +35,12 @@ class BoondApi:
     URL_RESOURCES               = '/api/resources'
     URL_RESOURCES_DT          = '/api/resources/%s/technical-data'
     URL_RESOURCES_INFO          = '/api/resources/%s/information'
+    URL_RESOURCES_ACTIONS       = "/api/resources/%s/actions"
+
     URL_CANDIDATES               = '/api/candidates'
     URL_CANDIDATES_INFO          = '/api/candidates/%s/information'
     URL_CANDIDATES_DT          = '/api/candidates/%s/technical-data'
+    URL_CANDIDATES_ACTIONS       = "/api/candidates/%s/actions"
 
     def __init__(self, auth: BoondAuth, host: str) -> None:
         self.logger = logging.getLogger(__name__)
@@ -51,7 +54,7 @@ class BoondApi:
             a = urllib.parse.urlencode(args)
             u = u + '?' + a
         return u
-
+    @cache
     def get(self, url: str) -> Any:
         conn = http.client.HTTPSConnection(self.host)
         conn.request("GET", url, None, self.auth.auth_headers)
@@ -65,8 +68,12 @@ class BoondApi:
             return d
         else:
             loc = resp.headers.get('Location', None)
+            body = resp.read()
             self.logger.error("get: %d - %s", resp.status, resp.reason)
             self.logger.error("get: location %s", loc)
+            self.logger.error("get: URL %s", url)
+            if ( body is not None) : self.logger.error("get: body <%s>", body)
+
         conn.close()
         return None
 
@@ -75,7 +82,6 @@ class BoondApi:
         val = self.get(s)
         assert (val is not None)
         # self.logger.debug("getReportingProductionPlan: %s", val)
-
         return ReportingProductionPlans(val)
 
 
@@ -88,7 +94,7 @@ class BoondApi:
                    val['data']))
         # return ReportingProductionPlans(val)
 
-
+    @cache
     def getApplicationDictionary(self) -> ApplicationDictionary:
         val = self.get(self.URL_APPLICATION_DICTIONARY)
         assert (val is not None)
@@ -96,12 +102,14 @@ class BoondApi:
 
         return ApplicationDictionary(val)
 
+    @cache
     def getApplicationFlags(self) -> ApplicationFlags:
         val = self.get(self.URL_APPLICATION_FLAGS)
         assert (val is not None)
         # self.logger.debug("getApplicationDictionary: %s", val)
         return ApplicationFlags(val)
 
+    @cache
     def getPoles(self) -> EntityPoles:
         val = self.get(self.URL_POLES)
         assert (val is not None)
@@ -114,36 +122,32 @@ class BoondApi:
         val = self.get(s)
         assert (val is not None)
         # self.logger.debug("getResourceFlagsById: %s",val)
-
         return AttachedFlags(val)
 
     def getResourceActionsById(self, id_entity: str, args) -> EntityActions:
         s = self.build_url(self.URL_RESOURCES_ACTIONS % id_entity, args)
         val = self.get(s)
         assert (val is not None)
-
         return EntityActions(val)
 
-    def getResourceActionListById(self, id_entity: str, args) -> [ActionEntity]:
-        s = self.build_url(self.URL_RESOURCES_ACTIONS % id_entity, args)
+    def getResourceActionListById(self, id_entity: str, criterias:dict) -> [ActionEntity]:
+        s = self.build_url(self.URL_RESOURCES_ACTIONS % id_entity, criterias)
         val = self.get(s)
         assert (val is not None)
-
         return list(map(lambda ent: ActionEntity({'meta': val['meta'], 'data':ent, 'included': val['included']} ),
                    val['data']))
 
-    def getContactActionsById(self, id_entity: str, args) -> EntityActions:
-        s = self.build_url(self.URL_CONTACTS_ACTIONS % id_entity, args)
+    def getContactActionsById(self, id_entity: str, criterias:dict) -> [ActionEntity]:
+        s = self.build_url(self.URL_CONTACTS_ACTIONS % id_entity, criterias)
         val = self.get(s)
         assert (val is not None)
-
-        return EntityActions(val)
+        return list(map(lambda ent: ActionEntity({'meta': val['meta'], 'data':ent, 'included': val['included']} ),
+                                 val['data']))
 
     def getContacts(self, args) -> EntityContacts:
         s = self.build_url(self.URL_CONTACTS, args)
         val = self.get(s)
         assert (val is not None)
-
         return EntityContacts(val)
 
     def getResources(self, args) -> [ResourceEntity]:
@@ -156,7 +160,7 @@ class BoondApi:
     def getResourceInfo(self, id_entity:str) -> ResourceEntity:
         s = self.build_url(self.URL_RESOURCES_INFO % id_entity)
         val = self.get(s)
-        assert (val is not None)
+        if ( val is None ) : return None
         return ResourceEntity(val)
 
     def getResourceDT(self, id_entity:str) -> ResourceEntity:
@@ -183,4 +187,12 @@ class BoondApi:
         val = self.get(s)
         assert (val is not None)
         return CandidateEntity(val)
+
+
+    def getCandidateActionListById(self, id_entity: str, args: dict) -> [ActionEntity]:
+        s = self.build_url(self.URL_CANDIDATES_ACTIONS % id_entity, args)
+        val = self.get(s)
+        if val is None : return []
+        return list(map(lambda ent: ActionEntity({'meta': val['meta'], 'data':ent, 'included': val['included']} ),
+                        val['data']))
 # end

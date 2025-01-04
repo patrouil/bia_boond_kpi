@@ -2,3 +2,5 @@ pyjwt
 python-pptx
 XlsxWriter
 html2text
+python-dateutil
+

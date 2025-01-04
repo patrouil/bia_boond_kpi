@@ -24,10 +24,6 @@ class MaturiteContratMapper:
 
     def accept(self, res : ResourceEntity)->bool:
         return True
-#        id = res['id']
- #       flags = self.api.getResourceFlagsById(id)
-  #      if ( flags.is_empty()): return False
-   #     return flags.has_flag('Pole Maveric Ouest')
 
     def map(self, prod: ReportingProductionPlans) -> [MaturiteContrat]:
         maturities = []
@@ -46,7 +42,6 @@ class MaturiteContratMapper:
             delivery_id = r.data_relationships['deliveries']['data'][0]['id']
             deliveries_details = prod.all_included_of_by_type_and_id('delivery', delivery_id)
 
-
             for d in deliveries_details :
                 m.debut = self.minStr(m.debut,d['attributes']['startDate'])
                 m.fin = self.maxStr(m.fin, d['attributes']['endDate'])
@@ -60,8 +55,8 @@ class MaturiteContratMapper:
 
                 contact = prod.included_of_by_type_and_id('contact', contact_id)
                 company = prod.included_of_by_type_and_id('company', company_id)
-                if ( m.donneurOrdre == '') : m.donneurOrdre = contact['attributes']['firstName'] + ' ' + contact['attributes']['lastName']
-                if ( m.client == '') : m.client = company['attributes']['name']
+                if m.donneurOrdre == '': m.donneurOrdre = prod.included_fullname(contact)
+                if m.client == '': m.client = company['attributes']['name']
             # end for
             maturities.append(m)
     # end for

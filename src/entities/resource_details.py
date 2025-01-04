@@ -16,6 +16,8 @@ contraintes
 '''
 import datetime
 
+from boond.entity.action_entity import ActionEntity
+
 
 class ResourceDetails :
     def __init__(self):
@@ -30,4 +32,7 @@ class ResourceDetails :
         self.dispo_date: str = None
         self.titre: str = None
         self.secteur = None
+        self.updateDate = None
+        self.last_action:ActionEntity=None
+        self.last_action_date:None
         return

@@ -10,7 +10,6 @@ class ProductionPlanQuery:
     # endDate=2024-05-31&narrowPerimeter=false&occupationGradient=false&order=asc&perimeterPoles=%5B%224%22%5D&perimeterType=projects&period=monthly&positioningPeriod=created&regroup=false&reportingAvailability=asc&saveSearch=true&showContracts=false&sort=availability&startDate=2024-01-01
     # https://ui.boondmanager.com/api/reporting-production-plans?endDate=2024-04-30&maxResults=30&narrowPerimeter=false&occupationGradient=false&order=asc&page=1&perimeterPoles=4&perimeterType=resources&period=monthly&positioningPeriod=created&regroup=false&reportingAvailability=asc&saveSearch=true&showContracts=false&sort=availability&startDate=2023-11-01
     paramdict = {
-        "narrowPerimeter": "false",
         'resourceTypes': '[1,0]',  # consultant interne / externe
         'resourceStates': '[1,2]',  # en mission / futur inter co
         'perimeterType': 'projects',
@@ -18,12 +17,11 @@ class ProductionPlanQuery:
         'period': 'monthly',
         'order': 'asc',
         'sort': 'availability',
-        'endDate': '2024-12-31',
         'startDate': '2024-01-01',
-        'reportingAvailability': 'asc',
-
+        'endDate': '2024-12-31',
         'maxResults': '300'
     }
+    #                 "narrowPerimeter": "false", 'reportingAvailability': 'asc',
 
     def __init__(self, api: BoondApi, pole_id: str):
         self.api = api

@@ -1,16 +1,16 @@
 import datetime
+import getopt
 import logging.config
 import sys
-import getopt
 
-from entities.xls_helper import XlsHelper
-from mailler import Mailler
 from pptx import Presentation
 from xlsxwriter import Workbook
 
-from configuration import Configuration
 from boond.boond_api import BoondApi
 from boond.boond_auth import BoondAuth
+from configuration import Configuration
+from entities.xls_helper import XlsHelper
+from mailler import Mailler
 from report.report_factory import ReportFactory
 
 

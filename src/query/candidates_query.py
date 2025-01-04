@@ -35,10 +35,7 @@ class CandidatesQuery:
         if  entity.is_empty : return entity
         entity.merge( self.api.getCandidateInfo(entity.entity_id))
         entity.merge( self.api.getCandidateDT(entity.entity_id))
-
         return entity
-
-
 
     def mergeResourceDT(self, entity:CandidateEntity)-> CandidateEntity:
         return entity
