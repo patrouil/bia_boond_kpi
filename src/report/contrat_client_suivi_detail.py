@@ -1,11 +1,10 @@
-import datetime
 import logging
 
 from pptx import Presentation
 from pptx.util import Pt, Cm
 from pptx.text.text import TextFrame
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from entities.maturite_contrat import MaturiteContrat
 from entities.report_definition import ReportDefinition
 from query.prod_plan_query import ProductionPlanQuery

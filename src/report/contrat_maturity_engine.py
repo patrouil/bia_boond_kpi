@@ -1,7 +1,6 @@
-import datetime
 import logging
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from entities.maturite_contrat import MaturiteContrat
 from pptx import Presentation
 from pptx.util import Pt, Cm

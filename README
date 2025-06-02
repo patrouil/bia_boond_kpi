@@ -1,0 +1,19 @@
+
+
+Idee de report
+
+1 - Les actions sur periode pour les clients du pole.
+https://ui.boondmanager.com/actions?actionTypes=%5B2%2C3%2C10%2C11%2C60%2C61%2C62%2C63%2C64%5D&endDate=2024-12-31&keywords=%22BNP%20PARIBAS%20GESTION%20PRIVÉE%20SOUS%20MANDAT%22&order=desc&period=updated&returnRelatedActions=true&saveSearch=true&sort=startDate&startDate=2024-01-01
+
+Prendre chaque client du pole
+Chercher les actions de contact
+avec comme mot cle "le nom client".
+
+2 - Les actions pour les clients privilégiés.
+Parmis le flag XXX
+Lister le detail des actions par date.
+Avec les info contact qui donnent les criteres/preferences.
+
+Trouver une idee pour les mailing par domaine fonctionnel.
+
+3 - Dans le report 1. Faire un report par domaine fonctionnel et par type de contact.

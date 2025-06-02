@@ -1,10 +1,9 @@
-import datetime
 import logging
 
 from pptx import Presentation
 from pptx.util import Pt, Cm
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from entities.report_definition import ReportDefinition
 from report.generic_report import  GenericReport
 from mapper.suivi_resource_mapper import SuiviResourceMapper

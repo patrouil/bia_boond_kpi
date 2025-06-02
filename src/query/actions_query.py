@@ -1,7 +1,6 @@
 
-from  functools import cache
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from boond.entity.action_entity import ActionEntity
 
 class ActionsQuery:

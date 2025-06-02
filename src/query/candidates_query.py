@@ -1,8 +1,6 @@
-import datetime
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from boond.entity.candidate_entity import CandidateEntity
-from boond.entity.resource_entity import ResourceEntity
 
 
 class CandidatesQuery:

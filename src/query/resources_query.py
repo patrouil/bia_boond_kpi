@@ -1,8 +1,6 @@
-import datetime
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from boond.entity.resource_entity import ResourceEntity
-
 
 class ResourcesQuery:
     # order attrib get an already sorted list.

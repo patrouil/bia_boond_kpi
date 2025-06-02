@@ -5,7 +5,7 @@ from pptx.util import Pt
 from pptx import Presentation
 from xlsxwriter import Workbook
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from entities.report_definition import ReportDefinition
 from entities.xls_helper import XlsHelper
 

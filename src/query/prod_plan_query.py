@@ -1,6 +1,6 @@
 import datetime
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from boond.entity.reporting_production_plans import ReportingProductionPlans
 from boond.entity.resource_entity import ResourceEntity
 

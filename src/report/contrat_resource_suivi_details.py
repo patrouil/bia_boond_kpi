@@ -3,12 +3,11 @@ import logging
 from pptx import Presentation
 from pptx.util import Cm
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from entities.contrat_suivi import ContratSuivi
 from entities.report_definition import ReportDefinition
 from mapper.suivi_resource_mapper_details import SuiviResourceMapperDetails
 from report.generic_report import  GenericReport
-from entities.maturite_contrat import MaturiteContrat
 from query.prod_plan_query import ProductionPlanQuery
 
 
