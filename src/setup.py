@@ -14,7 +14,7 @@ def read_requirements():
 
 setup(
     # Informations de base du package
-    name="boondkpie",
+    name="boondkpi",
     version="1.0.0",
     author="patrouil",
     author_email="patrouil@gmail.com",
