@@ -9,7 +9,6 @@ from mapper.liste_prioritaire_mapper import ListePrioritaireMapper
 from query.candidates_query import CandidatesQuery
 from query.resources_query import ResourcesQuery
 from report.generic_report import GenericReport
-from xlsxwriter import Workbook
 from xlsxwriter.worksheet import Worksheet
 
 '''
