@@ -3,4 +3,5 @@ python-pptx
 XlsxWriter
 html2text
 python-dateutil
+boondkpi @ git+https://github.com/patrouil/bia_boond_kpi.git@release#egg=src
 

@@ -1,4 +1,4 @@
-from boond.boond_api import BoondApi
+from boond import BoondApi
 from entities.report_definition import ReportDefinition
 from report.contrat_client_suivi_engine import ContratClientSuiviEngine
 from report.contrat_maturity_engine import ContratMaturityEngine

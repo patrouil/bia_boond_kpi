@@ -21,14 +21,25 @@ class ListePrioritaireMapper:
     def accept(self, res: []) -> bool:
         return True
 
+    def avail_date_fr_format(self, s_avail)-> str:
+        try :
+            if s_avail is None :
+                theDate = date.fromisoformat('9999-12-31')
+            else :
+                theDate= date.fromisoformat(s_avail)
+
+            return theDate.strftime('%d/%m/%Y')
+        except :
+            return s_avail
+        return ''
+
     def mapResource(self, res: ResourceEntity) -> ResourceDetails:
         res_det = ResourceDetails()
         res_det.id = res.entity_id
         res_det.url = "https://ui.boondmanager.com/resources/%s/overview" % res.entity_id
         res_det.resource_name = res.full_name
         res_det.competences = res.skills
-        theDate= date.fromisoformat(res.availability)  if res.availability is not None else date.fromisoformat('9999-12-31')
-        res_det.dispo_date = theDate.strftime('%d/%m/%Y') if theDate is not None else ''
+        res_det.dispo_date = self.avail_date_fr_format(res.availability)
         res_det.experience = self.appl_dict.setting_experience_of(res.experience) if not res.experience == '-1' else ''
         res_det.state = self.appl_dict.setting_state_of('resource', res.state) if res.state is not None else ''
         res_det.typeOf = self.appl_dict.setting_type_of('resource', int(res.typeOf)) if not res.typeOf == '-1' else ''
@@ -37,6 +48,7 @@ class ListePrioritaireMapper:
         res_det.secteur, e) if res_det.secteur is not None else e
         res_det.comment = res.informationComments
         res_det.updateDate = res.entity_update_date
+
         return res_det
 
     def mapCandidate(self, can: CandidateEntity) -> ResourceDetails:

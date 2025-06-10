@@ -29,6 +29,7 @@ setup() {
   $PYTHON_CMD -m pip install --no-cache-dir -r requirements.txt
 }
 
+
 # main
 BOONDKPI_REPO=$(dirname $0)
 VENV=hapenv

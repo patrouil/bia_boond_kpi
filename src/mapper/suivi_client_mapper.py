@@ -20,6 +20,7 @@ class SuiviClientMapper:
     def accept(self, res: []) -> bool:
         return True
 
+
     def map(self, prod: ReportingProductionPlans) -> [ContratSuivi]:
         resources_in_prod_plan = prod.data_of('resource')
         suivi = []

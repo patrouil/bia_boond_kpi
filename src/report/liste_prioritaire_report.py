@@ -1,6 +1,6 @@
 import logging
 
-from boond.boond_api import BoondApi
+from boond import BoondApi
 
 from entities.report_definition import ReportDefinition
 from entities.resource_details import ResourceDetails
